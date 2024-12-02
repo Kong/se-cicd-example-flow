@@ -1,0 +1,24 @@
+_id: env_ee4f32dde4d14677a633736b07f8d0a9
+type: Environment
+parentId: env_63c85d61384e0abffc70d232654e3642e173509e
+modified: 1712732307093
+created: 1646132133856
+name: Local docker compose (8000)
+data:
+  scheme: http
+  base_path: ""
+  host: localhost:8000
+  codes: "200"
+  apikey: silver
+  base_url: http://localhost:8000
+dataPropertyOrder:
+  "&":
+    - scheme
+    - base_path
+    - host
+    - codes
+    - apikey
+    - base_url
+color: "#0ad6ff"
+isPrivate: false
+metaSortKey: 0

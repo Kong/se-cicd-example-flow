@@ -1,0 +1,24 @@
+_id: env_35b9949a50394f1fb42ec084bf986704
+type: Environment
+parentId: env_63c85d61384e0abffc70d232654e3642e173509e
+modified: 1712732322797
+created: 1667465070635
+name: Production AWS
+data:
+  scheme: https
+  base_path: ""
+  host: aws.frankfurt.konnect.sven.service-connectivity.com
+  codes: "200"
+  apikey: silver
+  base_url: http://aws.frankfurt.konnect.sven.service-connectivity.com:8000
+dataPropertyOrder:
+  "&":
+    - scheme
+    - base_path
+    - host
+    - codes
+    - apikey
+    - base_url
+color: "#ff0a0a"
+isPrivate: false
+metaSortKey: 3

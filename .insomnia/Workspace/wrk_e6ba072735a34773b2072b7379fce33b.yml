@@ -1,0 +1,13 @@
+_id: wrk_e6ba072735a34773b2072b7379fce33b
+type: Workspace
+parentId: null
+modified: 1660205930572
+created: 1603090884959
+name: UUID generator based on httpbin.org 1.0.3
+description: >-
+  A simple service returning a UUID based on https://httpbin.org
+
+  Service is free - but think about giving an ice cream to the developer
+
+  ![Developer wants an ice cream](https://camo.githubusercontent.com/7454fb1622dd3589ddac9251455a601c6fd21800/687474703a2f2f6661726d312e737461746963666c69636b722e636f6d2f3537322f33323531343636393638335f346461663261623762635f6b5f642e6a7067) 
+scope: design

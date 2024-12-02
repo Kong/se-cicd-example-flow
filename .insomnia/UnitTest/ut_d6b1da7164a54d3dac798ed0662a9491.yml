@@ -1,0 +1,11 @@
+_id: ut_d6b1da7164a54d3dac798ed0662a9491
+type: UnitTest
+parentId: uts_d0472537822943ac8fc211772dce3fb9
+modified: 1686726121931
+created: 1603097542207
+requestId: req_wrk_e6ba072735a34773b2072b7379fce33b6b69dbeb
+name: Endpoint available and returns a 200
+code: |-
+  const response1 = await insomnia.send();
+  expect(response1.status).to.equal(200);
+metaSortKey: -1712729953165

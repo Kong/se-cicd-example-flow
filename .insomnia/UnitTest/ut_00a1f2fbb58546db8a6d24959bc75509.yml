@@ -1,0 +1,11 @@
+_id: ut_00a1f2fbb58546db8a6d24959bc75509
+type: UnitTest
+parentId: uts_d892feff2f61460c8164f666d717e4df
+modified: 1686725826684
+created: 1686725479975
+requestId: req_wrk_e6ba072735a34773b2072b7379fce33b02ea50fd1
+name: Allow Request with API key
+code: |-
+  const response1 = await insomnia.send(); 
+  expect(response1.status).to.equal(200);
+metaSortKey: -1712729953165

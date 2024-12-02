@@ -1,0 +1,24 @@
+_id: env_ad8239f9b2fe4ab8a940dbc56c1719f8
+type: Environment
+parentId: env_63c85d61384e0abffc70d232654e3642e173509e
+modified: 1712732355072
+created: 1686727329382
+name: Local Kubernetes (9000)
+data:
+  scheme: http
+  base_path: ""
+  host: localhost:9000
+  codes: "200"
+  apikey: silver
+  base_url: http://localhost:9000
+dataPropertyOrder:
+  "&":
+    - scheme
+    - base_path
+    - host
+    - codes
+    - apikey
+    - base_url
+color: "#ff0af7"
+isPrivate: false
+metaSortKey: 0

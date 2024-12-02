@@ -1,0 +1,28 @@
+_id: req_wrk_e6ba072735a34773b2072b7379fce33bb573c154
+type: Request
+parentId: wrk_e6ba072735a34773b2072b7379fce33b
+modified: 1642083636458
+created: 1642083636458
+url: "{{ base_url }}/anything/catOrDog"
+name: To bark or not to bark
+description: ""
+method: POST
+body:
+  mimeType: application/json
+  text: "null"
+parameters: []
+headers:
+  - name: Content-Type
+    value: application/json
+authentication: {}
+preRequestScript: ""
+metaSortKey: -1642083636458
+isPrivate: false
+pathParameters: []
+afterResponseScript: null
+settingStoreCookies: true
+settingSendCookies: true
+settingDisableRenderRequestBody: false
+settingEncodeUrl: true
+settingRebuildPath: true
+settingFollowRedirects: global
