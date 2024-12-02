@@ -1,7 +1,7 @@
 _id: spc_191b0c04b8cd43f5b10d755f938c0444
 type: ApiSpec
 parentId: wrk_58044925e8cc4c99a8275a1ae1450908
-modified: 1733131178415
+modified: 1733131635844
 created: 1733131178404
 fileName: CI/CD example flows from Insomnia to Konnect
 contents: >
@@ -25,7 +25,7 @@ contents: >
       5. Propagate automatically to the Kong Gateway
       6. Publish and document on the Konnect Developer Portal
 
-      The oroginal httpbin service is free - but **think about giving an ice cream to the developer**
+      The original httpbin service is free - but **think about giving an ice cream to the developer**
 
       ![Developer wants an ice cream](https://images.pexels.com/photos/5060281/pexels-photo-5060281.jpeg?cs=srgb&dl=pexels-roman-odintsov-5060281.jpg&fm=jpg&w=200) 
     title: CI/CD example flows from Insomnia to Konnect
