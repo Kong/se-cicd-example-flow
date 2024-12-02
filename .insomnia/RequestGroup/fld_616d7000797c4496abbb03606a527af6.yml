@@ -1,0 +1,15 @@
+_id: fld_616d7000797c4496abbb03606a527af6
+type: RequestGroup
+parentId: wrk_58044925e8cc4c99a8275a1ae1450908
+modified: 1733131178408
+created: 1733131178408
+name: Cats and Dogs
+description: ""
+environment: {}
+environmentPropertyOrder: null
+metaSortKey: -1733130252372
+preRequestScript: null
+afterResponseScript: null
+authentication: null
+headers: null
+environmentType: kv

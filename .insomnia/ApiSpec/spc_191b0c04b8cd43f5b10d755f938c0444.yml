@@ -1,30 +1,35 @@
-_id: spc_d95de7ad75f04714a033d9e6544caea4
+_id: spc_191b0c04b8cd43f5b10d755f938c0444
 type: ApiSpec
-parentId: wrk_e6ba072735a34773b2072b7379fce33b
-modified: 1726054458088
-created: 1603090884967
-fileName: uuid-generator.yaml
+parentId: wrk_58044925e8cc4c99a8275a1ae1450908
+modified: 1733131178415
+created: 1733131178404
+fileName: CI/CD example flows from Insomnia to Konnect
 contents: >
   openapi: 3.0.0
 
   servers:
     - url: https://httpbin.apim.eu
+    - url: https://httpbin.konghq.com
   info:
     contact:
       email: me@kennethreitz.org
       url: https://kennethreitz.org
       name: Kenneth Reitz
-    description: >-
-      A cool simple service returning a UUID based on <https://httpbin.org>
-      Also has some more features added like delayed responses and similar
+    description: |
+      This service and the GutHub repo this OpenOPI is living in is about showing all the different ways of automation using the Kong tool chain.
       
+      1. OpenAPI designing in Insomnia
+      2. Using collections to test auto APIs
+      3. Creating test collection
+      4. Automating the creation of a sandbox / mockup version in Kong Gateway
+      5. Propagate automatically to the Kong Gateway
+      6. Publish and document on the Konnect Developer Portal
 
-      Service is free - but **think about giving an ice cream to the developer**
-
+      The oroginal httpbin service is free - but **think about giving an ice cream to the developer**
 
       ![Developer wants an ice cream](https://images.pexels.com/photos/5060281/pexels-photo-5060281.jpeg?cs=srgb&dl=pexels-roman-odintsov-5060281.jpg&fm=jpg&w=200) 
-    title: UUID generator based on httpbin.org
-    version: 1.3.0
+    title: CI/CD example flows from Insomnia to Konnect
+    version: 3.8.1.0
   paths:
     /uuid:
       get:
@@ -77,8 +82,6 @@ contents: >
           - Anything
           - CatOrDog
           - Body
-        x-kong-plugin-request-validator:
-          enabled: false
         x-kong-plugin-rate-limiting-advanced:
           enabled: true
           config:
@@ -107,8 +110,6 @@ contents: >
         tags:
           - Delayed Response
           - Path
-        x-kong-plugin-request-validator:
-          enabled: true
     /status/{codes}:
       get:
         description: returns a http status code
@@ -135,8 +136,6 @@ contents: >
         tags:
           - Status Codes
           - Path
-        x-kong-plugin-request-validator:
-          enabled: true
         x-kong-plugin-key-auth:
           enabled: true
   components:

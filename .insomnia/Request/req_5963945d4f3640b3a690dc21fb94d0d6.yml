@@ -1,25 +1,33 @@
-_id: req_wrk_e6ba072735a34773b2072b7379fce33bb573c154
+_id: req_5963945d4f3640b3a690dc21fb94d0d6
 type: Request
-parentId: wrk_e6ba072735a34773b2072b7379fce33b
-modified: 1642083636458
-created: 1642083636458
+parentId: fld_616d7000797c4496abbb03606a527af6
+modified: 1733131178408
+created: 1733131178408
 url: "{{ base_url }}/anything/catOrDog"
 name: To bark or not to bark
 description: ""
 method: POST
 body:
   mimeType: application/json
-  text: "null"
+  text: |-
+    {
+      "name": {% faker 'randomUserName' %}
+    }
 parameters: []
 headers:
   - name: Content-Type
     value: application/json
 authentication: {}
 preRequestScript: ""
-metaSortKey: -1642083636458
+metaSortKey: -1733130262003
 isPrivate: false
 pathParameters: []
-afterResponseScript: null
+afterResponseScript: |+
+  
+  insomnia.test('Check if status is 200', () => {
+      insomnia.expect(insomnia.response.code).to.eql(200);
+  });
+
 settingStoreCookies: true
 settingSendCookies: true
 settingDisableRenderRequestBody: false

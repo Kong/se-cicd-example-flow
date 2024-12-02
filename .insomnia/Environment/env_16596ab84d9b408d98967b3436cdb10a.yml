@@ -1,24 +1,26 @@
-_id: env_0ab9354e95d6411bbbff5d57e109357f
+_id: env_16596ab84d9b408d98967b3436cdb10a
 type: Environment
-parentId: env_63c85d61384e0abffc70d232654e3642e173509e
-modified: 1712732365675
-created: 1667465749024
+parentId: env_43760be38db74a0e92780880d0296e56
+modified: 1733131178402
+created: 1733131178402
 name: Live backend direct (no gateway)
 data:
   scheme: https
   base_path: ""
   host: httpbin.apim.eu
-  codes: "200"
   apikey: silver
   base_url: http://httpbin.apim.eu
+  delay: 1
+  codes: 500%2C200%2C202%2C404
 dataPropertyOrder:
   "&":
     - scheme
     - base_path
     - host
-    - codes
     - apikey
     - base_url
+    - delay
+    - codes
 color: "#0eff0a"
 isPrivate: false
 metaSortKey: -1

@@ -1,0 +1,39 @@
+_id: req_c9222bdbfe68440f8a95ca5eecbf14cd
+type: Request
+parentId: fld_fad08321fe9f489ca5d6192019e65466
+modified: 1733131178406
+created: 1733131178406
+url: "{{ _.base_url }}/uuid"
+name: Return a UUID4.
+description: ""
+method: GET
+body: {}
+parameters: []
+headers: []
+authentication:
+  type: apikey
+  disabled: false
+  key: .
+  value: ""
+  addTo: header
+preRequestScript: ""
+metaSortKey: -1603093186609
+isPrivate: false
+pathParameters: []
+afterResponseScript: |+
+  
+  insomnia.test('Check if status is 200', () => {
+      insomnia.expect(insomnia.response.code).to.eql(200);
+  });
+
+  insomnia.test('Check if response has a UUID prooperty of type string', () => {
+      insomnia.expect(insomnia.response.code).to.eql(200);
+  	  insomnia.expect('uuid').to.be.a('string');
+  });
+
+settingStoreCookies: true
+settingSendCookies: true
+settingDisableRenderRequestBody: false
+settingEncodeUrl: true
+settingRebuildPath: true
+settingFollowRedirects: global

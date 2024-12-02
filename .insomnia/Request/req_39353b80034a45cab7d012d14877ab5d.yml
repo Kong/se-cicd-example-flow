@@ -1,0 +1,42 @@
+_id: req_39353b80034a45cab7d012d14877ab5d
+type: Request
+parentId: fld_21806e26e4fb4288a63d521c4e96afe8
+modified: 1733131178409
+created: 1733131178409
+url: "{{ base_url }}/anything/query"
+name: Return anything data.
+description: ""
+method: GET
+body: {}
+parameters:
+  - name: exampleParam
+    disabled: false
+    value: "0"
+headers:
+  - id: pair_b2f678508fc14f76b15281a3398e4d85
+    name: ""
+    value: ""
+    description: ""
+    disabled: false
+authentication:
+  type: apikey
+  disabled: false
+  key: dsfjhg
+  value: ""
+  addTo: header
+preRequestScript: ""
+metaSortKey: -1733130284053
+isPrivate: false
+pathParameters: []
+afterResponseScript: |+
+  
+  insomnia.test('Check if status is 200', () => {
+      insomnia.expect(insomnia.response.code).to.eql(200);
+  });
+
+settingStoreCookies: true
+settingSendCookies: true
+settingDisableRenderRequestBody: false
+settingEncodeUrl: true
+settingRebuildPath: true
+settingFollowRedirects: global

@@ -1,8 +1,8 @@
-_id: env_ad8239f9b2fe4ab8a940dbc56c1719f8
+_id: env_bc0462e82af44cf6b89a5ffa255cd8ca
 type: Environment
-parentId: env_63c85d61384e0abffc70d232654e3642e173509e
-modified: 1712732355072
-created: 1686727329382
+parentId: env_43760be38db74a0e92780880d0296e56
+modified: 1733131178402
+created: 1733131178402
 name: Local Kubernetes (9000)
 data:
   scheme: http

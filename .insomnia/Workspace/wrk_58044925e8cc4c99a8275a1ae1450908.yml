@@ -1,0 +1,16 @@
+_id: wrk_58044925e8cc4c99a8275a1ae1450908
+type: Workspace
+parentId: null
+modified: 1733131178397
+created: 1733131178397
+name: CI/CD example flows from Insomnia to Konnect
+description: >-2
+      This service and the GutHub repo this OpenOPI is living in is about showing all the different ways of automation using the Kong tool chain.
+      
+      1. OpenAPI designing in Insomnia
+      2. Using collections to test auto APIs
+      3. Creating test collection
+      4. Automating the creation of a sandbox / mockup version in Kong Gateway
+      5. Propagate automatically to the Kong Gateway
+      6. Publish and document on the Konnect Developer Portal
+scope: design
