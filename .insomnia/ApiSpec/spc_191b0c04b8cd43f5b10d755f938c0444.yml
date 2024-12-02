@@ -1,7 +1,7 @@
 _id: spc_191b0c04b8cd43f5b10d755f938c0444
 type: ApiSpec
 parentId: wrk_58044925e8cc4c99a8275a1ae1450908
-modified: 1733131635844
+modified: 1733154145137
 created: 1733131178404
 fileName: CI/CD example flows from Insomnia to Konnect
 contents: >
@@ -38,6 +38,15 @@ contents: >
         responses:
           "200":
             description: A UUID4.
+            content:
+              application/json:
+                schema:
+                  type: object
+                  properties:
+                    uuid:
+                      type: string
+                      description: The UUID
+                      example: 1234-5678-7878-6e6ete
         summary: Return a UUID4.
         tags:
           - Generate UUID
