@@ -1,7 +1,7 @@
 _id: spc_191b0c04b8cd43f5b10d755f938c0444
 type: ApiSpec
 parentId: wrk_58044925e8cc4c99a8275a1ae1450908
-modified: 1733233748471
+modified: 1733237410553
 created: 1733131178404
 fileName: CI/CD example flows from Insomnia to Konnect
 contents: >
@@ -103,8 +103,6 @@ contents: >
         tags:
           - Anything
           - Query
-        x-kong-plugin-request-validator:
-          enabled: true
     /anything/catOrDog:
       post:
         description: create a new pet
