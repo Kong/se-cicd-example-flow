@@ -1,7 +1,7 @@
 _id: spc_191b0c04b8cd43f5b10d755f938c0444
 type: ApiSpec
 parentId: wrk_58044925e8cc4c99a8275a1ae1450908
-modified: 1733154145137
+modified: 1733232000560
 created: 1733131178404
 fileName: CI/CD example flows from Insomnia to Konnect
 contents: >
@@ -46,7 +46,16 @@ contents: >
                     uuid:
                       type: string
                       description: The UUID
-                      example: 1234-5678-7878-6e6ete
+                examples:
+                  counting:
+                    value:
+                      uuid: 1234-5678-901234567-890
+                  text:
+                    value:
+                      uuid: aaaa-bbbb-ccccccc-dddd
+                  random:
+                    value:
+                      uuid: A99FE500-4AC4-4E63-87D0-EC508A10535F
         summary: Return a UUID4.
         tags:
           - Generate UUID
@@ -62,10 +71,34 @@ contents: >
               type: integer
               minimum: 5
               maximum: 25
+            examples:
+              valid:
+                value: 22
             description: A value between 5 and 25
         responses:
           "200":
             description: The anything endpoint but with limitation on query
+            content:
+              application/json:
+                schema:
+                  $ref: "#/components/schemas/Anything"
+                examples:
+                  example1:
+                    value:
+                      args:
+                        exampleParam: Parameter value
+                      data: "Mocked Query data"
+                      files: {}
+                      form: {}
+                      headers:
+                        "Accept": "text/html,application/xhtml+xml,application/xml"
+                        "Accept-Encoding": "gzip, deflate, br, zstd"
+                        "Accept-Language": "de-DE,de;q=0.9,en-US;q=0.8,en;q=0.7"
+                        "Connection": "keep-alive" 
+                        "Host": "httpbin.apim.eu" 
+                      "json": "null"
+                      "method": "GET"
+                      "origin": "10.244.0.1"
         summary: Return anything data.
         tags:
           - Anything
@@ -90,7 +123,6 @@ contents: >
         tags:
           - Anything
           - CatOrDog
-          - Body
         x-kong-plugin-rate-limiting-advanced:
           enabled: true
           config:
@@ -115,6 +147,26 @@ contents: >
         responses:
           "200":
             description: Returns a delayed response
+            content:
+              application/json:
+                schema:
+                  $ref: "#/components/schemas/Anything"
+                examples:
+                  example1:
+                    value:
+                      args: {}
+                      data: "Mocked Delayed Response data"
+                      files: {}
+                      form: {}
+                      headers:
+                        "Accept": "text/html,application/xhtml+xml,application/xml"
+                        "Accept-Encoding": "gzip, deflate, br, zstd"
+                        "Accept-Language": "de-DE,de;q=0.9,en-US;q=0.8,en;q=0.7"
+                        "Connection": "keep-alive" 
+                        "Host": "httpbin.apim.eu" 
+                      "json": "null"
+                      "method": "GET"
+                      "origin": "10.244.0.1"
         summary: Returns a delayed response (max of 10 seconds).
         tags:
           - Delayed Response
@@ -145,8 +197,6 @@ contents: >
         tags:
           - Status Codes
           - Path
-        x-kong-plugin-key-auth:
-          enabled: true
   components:
     securitySchemes:
       KeyCloak:
@@ -174,11 +224,6 @@ contents: >
           breed:
             type: string
             enum: [Dingo, Husky, Retriever, Shepherd]
-  #      required:
-
-  #        - bark
-
-  #        - breed
       Cat:
         type: object
         properties:
@@ -186,17 +231,41 @@ contents: >
             type: boolean
           age:
             type: integer
-   #     required:
-   #      - hunts
-   #      - age
-
+      Anything:
+        type: object
+        properties:
+          args: 
+            type: object
+            items:
+              type: object
+          data:
+            type: string
+          files: 
+            type: object
+            items:
+              type: object
+          form: 
+            type: object
+            items:
+              type: object
+          headers: 
+            type: object
+            items:
+              type: object    
+          json:
+            type: string
+          method:
+            type: string
+          origin:
+            type: string
+          url:
+            type: string
   tags:
     - description: Creates a random UUID and returns it in a JSON structure
       name: Generate UUID
     - name: Anything
     - name: Query
     - name: CatOrDog
-    - name: Body
     - name: Delayed Response
     - name: Path
     - name: Status Codes
