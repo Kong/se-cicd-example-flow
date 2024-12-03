@@ -1,7 +1,7 @@
 _id: spc_191b0c04b8cd43f5b10d755f938c0444
 type: ApiSpec
 parentId: wrk_58044925e8cc4c99a8275a1ae1450908
-modified: 1733232795980
+modified: 1733233642110
 created: 1733131178404
 fileName: CI/CD example flows from Insomnia to Konnect
 contents: >
@@ -127,7 +127,7 @@ contents: >
                   dog:
                     value:
                       args: {}
-                      data: "{\n  \"barks\": true,\n  \"breed\": \"Husky\"\n}"
+                      data: "{\"barks\": true,\"breed\": \"Husky\"}"
                       files: {}
                       form: {}
                       headers:
@@ -136,13 +136,13 @@ contents: >
                         "Accept-Language": "de-DE,de;q=0.9,en-US;q=0.8,en;q=0.7"
                         "Connection": "keep-alive" 
                         "Host": "httpbin.apim.eu" 
-                      "json": "{\n  \"breed\": \"Husky\",\n. \"barks\": true}"
+                      "json": "{\"breed\": \"Husky\",\"barks\": true}"
                       "method": "GET"
                       "origin": "10.244.0.1"
                   cat:
                     value:
                       args: {}
-                      data: "{\n  \"hunts\": true,\n  \"age\": 0\n}"
+                      data: "{\n  \"hunts\": true,\n  \"age\": 0}"
                       files: {}
                       form: {}
                       headers:
@@ -151,7 +151,7 @@ contents: >
                         "Accept-Language": "de-DE,de;q=0.9,en-US;q=0.8,en;q=0.7"
                         "Connection": "keep-alive" 
                         "Host": "httpbin.apim.eu" 
-                      "json": "{\n  \"age\": 0,\n. \"hunts\": true}"
+                      "json": "{\"age\": 0,\"hunts\": true}"
                       "method": "GET"
                       "origin": "10.244.0.1"
         summary: To bark or not to bark
