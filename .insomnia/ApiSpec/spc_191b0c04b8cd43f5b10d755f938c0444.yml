@@ -1,10 +1,10 @@
 _id: spc_191b0c04b8cd43f5b10d755f938c0444
 type: ApiSpec
 parentId: wrk_58044925e8cc4c99a8275a1ae1450908
-modified: 1733321324396
+modified: 1733321791703
 created: 1733131178404
 fileName: CI/CD example flows from Insomnia to Konnect
-contents: >
+contents: >-
   openapi: 3.0.0
 
   servers:
@@ -281,12 +281,18 @@ contents: >
           url:
             type: string
   tags:
-    - description: Creates a random UUID and returns it in a JSON structure
-      name: Generate UUID
+    - name: Generate UUID
+      description: Creates a random UUID and returns it in a JSON structure
     - name: Anything
+      description: An echo service
     - name: Query
+      description: Echo endpoint with query parameter
     - name: CatOrDog
+      description: Post either a dog or cat
     - name: Delayed Response
+      description: The echo response will be delayed by a few seconds
     - name: Path
+      description: Using path parameters
     - name: Status Codes
+      description: HTTP status codes (random)
 contentType: yaml
