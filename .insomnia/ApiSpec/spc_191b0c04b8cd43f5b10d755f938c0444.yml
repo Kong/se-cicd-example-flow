@@ -1,33 +1,20 @@
 _id: spc_191b0c04b8cd43f5b10d755f938c0444
 type: ApiSpec
 parentId: wrk_58044925e8cc4c99a8275a1ae1450908
-modified: 1733237410553
+modified: 1733321324396
 created: 1733131178404
 fileName: CI/CD example flows from Insomnia to Konnect
 contents: >
   openapi: 3.0.0
 
   servers:
-    - url: https://httpbin.apim.eu
-    - url: https://httpbin.konghq.com
+    - url: http://localhost:8000/cicd/v1
   info:
     contact:
       email: me@kennethreitz.org
       url: https://kennethreitz.org
       name: Kenneth Reitz
-    description: |
-      This service and the GutHub repo this OpenOPI is living in is about showing all the different ways of automation using the Kong tool chain.
-      
-      1. OpenAPI designing in Insomnia
-      2. Using collections to test auto APIs
-      3. Creating test collection
-      4. Automating the creation of a sandbox / mockup version in Kong Gateway
-      5. Propagate automatically to the Kong Gateway
-      6. Publish and document on the Konnect Developer Portal
-
-      The original httpbin service is free - but **think about giving an ice cream to the developer**
-
-      ![Developer wants an ice cream](https://images.pexels.com/photos/5060281/pexels-photo-5060281.jpeg?cs=srgb&dl=pexels-roman-odintsov-5060281.jpg&fm=jpg&w=200) 
+    description: "This service and the GutHub repo this OpenOPI is living in is about showing all the different ways of automation using the Kong tool chain.\n\n1. OpenAPI designing in Insomnia\n2. Using collections to test auto APIs\n3. Creating test collection\n4. Automating the creation of a sandbox / mockup version in Kong Gateway\n5. Propagate automatically to the Kong Gateway\n6. Publish and document on the Konnect Developer Portal\n\nThe original httpbin service is free - but **think about giving an ice cream to the developer**\n\n![Developer wants an ice cream](https://images.pexels.com/photos/5060281/pexels-photo-5060281.jpeg?cs=srgb&dl=pexels-roman-odintsov-5060281.jpg&fm=jpg&w=200) \n"
     title: CI/CD example flows from Insomnia to Konnect
     version: 3.8.1.0
   paths:
@@ -94,8 +81,8 @@ contents: >
                         "Accept": "text/html,application/xhtml+xml,application/xml"
                         "Accept-Encoding": "gzip, deflate, br, zstd"
                         "Accept-Language": "de-DE,de;q=0.9,en-US;q=0.8,en;q=0.7"
-                        "Connection": "keep-alive" 
-                        "Host": "httpbin.apim.eu" 
+                        "Connection": "keep-alive"
+                        "Host": "httpbin.apim.eu"
                       "json": "null"
                       "method": "GET"
                       "origin": "10.244.0.1"
@@ -132,8 +119,8 @@ contents: >
                         "Accept": "text/html,application/xhtml+xml,application/xml"
                         "Accept-Encoding": "gzip, deflate, br, zstd"
                         "Accept-Language": "de-DE,de;q=0.9,en-US;q=0.8,en;q=0.7"
-                        "Connection": "keep-alive" 
-                        "Host": "httpbin.apim.eu" 
+                        "Connection": "keep-alive"
+                        "Host": "httpbin.apim.eu"
                       "json": "{\"breed\": \"Husky\",\"barks\": true}"
                       "method": "GET"
                       "origin": "10.244.0.1"
@@ -147,8 +134,8 @@ contents: >
                         "Accept": "text/html,application/xhtml+xml,application/xml"
                         "Accept-Encoding": "gzip, deflate, br, zstd"
                         "Accept-Language": "de-DE,de;q=0.9,en-US;q=0.8,en;q=0.7"
-                        "Connection": "keep-alive" 
-                        "Host": "httpbin.apim.eu" 
+                        "Connection": "keep-alive"
+                        "Host": "httpbin.apim.eu"
                       "json": "{\"age\": 0,\"hunts\": true}"
                       "method": "GET"
                       "origin": "10.244.0.1"
@@ -164,7 +151,7 @@ contents: >
             window_size:
               - 60
             namespace: hlferuifgevhrlgzff63
-    /delay/{delay}: 
+    /delay/{delay}:
       get:
         description: delay a responses by a defined number of secondes
         operationId: delay
@@ -195,8 +182,8 @@ contents: >
                         "Accept": "text/html,application/xhtml+xml,application/xml"
                         "Accept-Encoding": "gzip, deflate, br, zstd"
                         "Accept-Language": "de-DE,de;q=0.9,en-US;q=0.8,en;q=0.7"
-                        "Connection": "keep-alive" 
-                        "Host": "httpbin.apim.eu" 
+                        "Connection": "keep-alive"
+                        "Host": "httpbin.apim.eu"
                       "json": "null"
                       "method": "GET"
                       "origin": "10.244.0.1"
@@ -237,16 +224,16 @@ contents: >
         openIdConnectUrl: https://keycloak.apim.eu/auth/realms/kong/.well-known/openid-configuration
         x-kong-security-openid-connect:
           config:
-            client_id: 
+            client_id:
               - blog_post
-            client_secret: 
+            client_secret:
               - a5186adc-b5e2-4501-85a8-eb19a5e1a2a3
             ssl_verify: false
             consumer_claim:
               - email
             verify_signature: false
             redirect_uri:
-               - http://localhost:8000/anything/query
+              - http://localhost:8000/anything/query
             consumer_optional: true
     schemas:
       Dog:
@@ -267,24 +254,24 @@ contents: >
       Anything:
         type: object
         properties:
-          args: 
+          args:
             type: object
             items:
               type: object
           data:
             type: string
-          files: 
+          files:
             type: object
             items:
               type: object
-          form: 
+          form:
             type: object
             items:
               type: object
-          headers: 
+          headers:
             type: object
             items:
-              type: object    
+              type: object
           json:
             type: string
           method:
