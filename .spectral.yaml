@@ -1,0 +1,8 @@
+rules:
+  cicd-demo-tags-need-description:
+    description: CICD Demo custom lint example: all tags must have a description
+    given: $.tags[*]
+    severity: error
+    then:
+      field: description
+      function: truthy
