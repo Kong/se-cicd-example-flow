@@ -6,6 +6,8 @@ created: 1733131178404
 fileName: CI/CD example flows from Insomnia to Konnect
 contents: >-
   openapi: 3.0.0
+
+
   servers:
     - url: https://httpbin.apim.eu
     - url: https://httpbin.konghq.com
@@ -24,11 +26,11 @@ contents: >-
       5. Propagate automatically to the Kong Gateway
       6. Publish and document on the Konnect Developer Portal
 
-      The oroginal httpbin service is free - but **think about giving an ice cream to the developer**
+      The original httpbin service is free - but **think about giving an ice cream to the developer**
 
       ![Developer wants an ice cream](https://images.pexels.com/photos/5060281/pexels-photo-5060281.jpeg?cs=srgb&dl=pexels-roman-odintsov-5060281.jpg&fm=jpg&w=200) 
     title: CI/CD example flows from Insomnia to Konnect
-    version: 3.10.0.0
+    version: 3.8.1.0
   paths:
     /uuid:
       get:
@@ -37,6 +39,24 @@ contents: >-
         responses:
           "200":
             description: A UUID4.
+            content:
+              application/json:
+                schema:
+                  type: object
+                  properties:
+                    uuid:
+                      type: string
+                      description: The UUID
+                examples:
+                  counting:
+                    value:
+                      uuid: 1234-5678-901234567-890
+                  text:
+                    value:
+                      uuid: aaaa-bbbb-ccccccc-dddd
+                  random:
+                    value:
+                      uuid: A99FE500-4AC4-4E63-87D0-EC508A10535F
         summary: Return a UUID4.
         tags:
           - Generate UUID
@@ -52,16 +72,38 @@ contents: >-
               type: integer
               minimum: 5
               maximum: 25
+            examples:
+              valid:
+                value: 22
             description: A value between 5 and 25
         responses:
           "200":
             description: The anything endpoint but with limitation on query
+            content:
+              application/json:
+                schema:
+                  $ref: "#/components/schemas/Anything"
+                examples:
+                  example1:
+                    value:
+                      args:
+                        exampleParam: Parameter value
+                      data: "Mocked Query data"
+                      files: {}
+                      form: {}
+                      headers:
+                        "Accept": "text/html,application/xhtml+xml,application/xml"
+                        "Accept-Encoding": "gzip, deflate, br, zstd"
+                        "Accept-Language": "de-DE,de;q=0.9,en-US;q=0.8,en;q=0.7"
+                        "Connection": "keep-alive" 
+                        "Host": "httpbin.apim.eu" 
+                      "json": "null"
+                      "method": "GET"
+                      "origin": "10.244.0.1"
         summary: Return anything data.
         tags:
           - Anything
           - Query
-        x-kong-plugin-request-validator:
-          enabled: true
     /anything/catOrDog:
       post:
         description: create a new pet
@@ -76,11 +118,45 @@ contents: >-
         responses:
           "200":
             description: A post request only allowing a cat or dog object
+            content:
+              application/json:
+                schema:
+                  $ref: "#/components/schemas/Anything"
+                examples:
+                  dog:
+                    value:
+                      args: {}
+                      data: "{\"barks\": true,\"breed\": \"Husky\"}"
+                      files: {}
+                      form: {}
+                      headers:
+                        "Accept": "text/html,application/xhtml+xml,application/xml"
+                        "Accept-Encoding": "gzip, deflate, br, zstd"
+                        "Accept-Language": "de-DE,de;q=0.9,en-US;q=0.8,en;q=0.7"
+                        "Connection": "keep-alive" 
+                        "Host": "httpbin.apim.eu" 
+                      "json": "{\"breed\": \"Husky\",\"barks\": true}"
+                      "method": "GET"
+                      "origin": "10.244.0.1"
+                  cat:
+                    value:
+                      args: {}
+                      data: "{\"hunts\": true, \"age\": 0}"
+                      files: {}
+                      form: {}
+                      headers:
+                        "Accept": "text/html,application/xhtml+xml,application/xml"
+                        "Accept-Encoding": "gzip, deflate, br, zstd"
+                        "Accept-Language": "de-DE,de;q=0.9,en-US;q=0.8,en;q=0.7"
+                        "Connection": "keep-alive" 
+                        "Host": "httpbin.apim.eu" 
+                      "json": "{\"age\": 0,\"hunts\": true}"
+                      "method": "GET"
+                      "origin": "10.244.0.1"
         summary: To bark or not to bark
         tags:
           - Anything
           - CatOrDog
-          - Body
         x-kong-plugin-rate-limiting-advanced:
           enabled: true
           config:
@@ -105,6 +181,26 @@ contents: >-
         responses:
           "200":
             description: Returns a delayed response
+            content:
+              application/json:
+                schema:
+                  $ref: "#/components/schemas/Anything"
+                examples:
+                  example1:
+                    value:
+                      args: {}
+                      data: "Mocked Delayed Response data"
+                      files: {}
+                      form: {}
+                      headers:
+                        "Accept": "text/html,application/xhtml+xml,application/xml"
+                        "Accept-Encoding": "gzip, deflate, br, zstd"
+                        "Accept-Language": "de-DE,de;q=0.9,en-US;q=0.8,en;q=0.7"
+                        "Connection": "keep-alive" 
+                        "Host": "httpbin.apim.eu" 
+                      "json": "null"
+                      "method": "GET"
+                      "origin": "10.244.0.1"
         summary: Returns a delayed response (max of 10 seconds).
         tags:
           - Delayed Response
@@ -135,8 +231,6 @@ contents: >-
         tags:
           - Status Codes
           - Path
-        x-kong-plugin-key-auth:
-          enabled: true
   components:
     securitySchemes:
       KeyCloak:
@@ -153,7 +247,7 @@ contents: >-
               - email
             verify_signature: false
             redirect_uri:
-              - http://localhost:8000/anything/query
+                - http://localhost:8000/anything/query
             consumer_optional: true
     schemas:
       Dog:
@@ -164,9 +258,6 @@ contents: >-
           breed:
             type: string
             enum: [Dingo, Husky, Retriever, Shepherd]
-  #      required:
-  #        - bark
-  #        - breed
       Cat:
         type: object
         properties:
@@ -174,19 +265,48 @@ contents: >-
             type: boolean
           age:
             type: integer
-  #     required:
-  #      - hunts
-  #      - age
-
+      Anything:
+        type: object
+        properties:
+          args: 
+            type: object
+            items:
+              type: object
+          data:
+            type: string
+          files: 
+            type: object
+            items:
+              type: object
+          form: 
+            type: object
+            items:
+              type: object
+          headers: 
+            type: object
+            items:
+              type: object    
+          json:
+            type: string
+          method:
+            type: string
+          origin:
+            type: string
+          url:
+            type: string
   tags:
-    - description: Creates a random UUID and returns it in a JSON structure
-      name: Generate UUID
+    - name: Generate UUID
+      description: Creates a random UUID and returns it in a JSON structure
     - name: Anything
+      description: An echo service
     - name: Query
+      description: Echo endpoint with query parameter
     - name: CatOrDog
-    - name: Body
+      description: Post either a dog or cat
     - name: Delayed Response
+      description: The echo response will be delayed by a few seconds
     - name: Path
+      description: Using path parameters
     - name: Status Codes
-
+      description: HTTP status codes (random)
 contentType: yaml
